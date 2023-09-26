@@ -1,0 +1,56 @@
+_BASE_: "./Base-RCNN-C4.yaml"
+MODEL:
+  META_ARCHITECTURE: "DAobjTwoStagePseudoLabGeneralizedRCNN"
+  #WEIGHTS: "output/new6/model_0039999.pth"
+  BACKBONE:
+    NAME: "build_vgg_backbone"
+  MASK_ON: False
+  RESNETS:
+    DEPTH: 101
+  PROPOSAL_GENERATOR:
+    NAME: "PseudoLabRPN"
+  RPN:
+    IN_FEATURES: ["vgg4"]
+  ROI_HEADS:
+    NAME: "StandardROIHeadsPseudoLab"
+    LOSS: "FocalLoss"
+    NUM_CLASSES: 10
+    IN_FEATURES: ["vgg4"]
+  ROI_BOX_HEAD:
+    NAME: "FastRCNNConvFCHead"
+    NUM_FC: 2
+    POOLER_RESOLUTION: 7
+SOLVER:
+  LR_SCHEDULER_NAME: "WarmupTwoStageMultiStepLR"
+  STEPS: (60000, 80000, 90000, 360000)
+  FACTOR_LIST: (1, 1, 1, 1, 1)
+  MAX_ITER: 160000
+  IMG_PER_BATCH_LABEL: 4
+  IMG_PER_BATCH_UNLABEL: 4
+  BASE_LR: 0.04
+DATALOADER:
+  SUP_PERCENT: 100.0
+  CLASS: ('traffic light', 'traffic sign', 'car', 'person', 'bus', 'truck', 'rider', 'bike', 'motor', 'train')
+DATASETS:
+DATASETS:
+  CROSS_DATASET: True
+  TRAIN_LABEL: (["Daytime_train",], ["Night_train",])
+  TRAIN_UNLABEL: ("DuskDawn_train",) 
+  TEST: ("DuskDawn_val",)
+SEMISUPNET:
+  Trainer: "ateacher"
+  BBOX_THRESHOLD: 0.8
+  TEACHER_UPDATE_ITER: 1
+  BURN_UP_STEP: 80000
+  PROTOTYPE_WARMUP: 79999
+  PROTOTYPE_LAYER: 1
+  USE_PROTOTYPE: 1
+  EMA_KEEP_RATE: 0.9996
+  UNSUP_LOSS_WEIGHT: 1.0
+  SUP_LOSS_WEIGHT: 1.0
+  USE_CONTRA: 1
+  DIS_TYPE: "vgg4"
+  CONTRA_WEIGHT: 1.2
+  PROTO_WEIGHT: 1.2
+TEST:
+  EVAL_PERIOD: 5000
