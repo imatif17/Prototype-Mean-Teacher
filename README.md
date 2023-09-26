@@ -123,8 +123,9 @@ python train_net.py \
 ```
 
 ## Pre-trained Models
-Crosstime Setting - Model()
-Crosscamera Setting - Model()
+Crosstime Setting - [Model](https://drive.google.com/file/d/1wk4xdMzu8CALDtwflKhpcvbY5bPkYh0N/view?usp=sharing)
+
+Crosscamera Setting - [Model](https://drive.google.com/file/d/18sH732SzE6mgcKFSTyPOUKlfhW-f78OB/view?usp=sharing)
 
 
 ## Result comparison on the Crosstime Setting
