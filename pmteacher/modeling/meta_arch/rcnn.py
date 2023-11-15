@@ -249,7 +249,8 @@ class DAobjTwoStagePseudoLabGeneralizedRCNN(GeneralizedRCNN):
             gt_labels_t = gt_instances_t[0].gt_classes
             gt_labels_s1 = gt_instances_s1[0].gt_classes
             gt_labels_s2 = gt_instances_s2[0].gt_classes
-            for i, x in enumerate(gt_instances_t):
+
+            '''for i, x in enumerate(gt_instances_t):
                 if (i != 0):
                     gt_labels_t = torch.cat((gt_labels_t, x.gt_classes))
             for i, x in enumerate(gt_instances_s1):
@@ -258,7 +259,7 @@ class DAobjTwoStagePseudoLabGeneralizedRCNN(GeneralizedRCNN):
             for i, x in enumerate(gt_instances_s2):
                 if (i != 0):
                     gt_labels_s2 = torch.cat((gt_labels_s2, x.gt_classes))
-            
+            '''
             box_features_t = self.roi_heads(
                 images_t,
                 features_t,

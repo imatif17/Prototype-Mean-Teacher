@@ -371,8 +371,8 @@ class PMTTrainer(DefaultTrainer):
                 all_label_data = label_data_q + label_data_k
                 all_unlabel_data = unlabel_data_q
                 if (i==0):
-                    all_data.append(unlabel_data_q + unlabel_data_k)
-                all_data.append(all_label_data)
+                    all_data.append(unlabel_data_k)
+                all_data.append(label_data_k)
                 # 4. input both strongly and weakly augmented labeled data into student model
                 record_all_label_data, _, _, _ = self.model(
                     all_label_data, branch="supervised", target_type = i+1
