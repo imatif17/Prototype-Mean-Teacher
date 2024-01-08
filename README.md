@@ -5,7 +5,7 @@ This is the Pytorch implementation of our paper - <br>
 **Multi-Source Domain Adaptation for Object Detection with Prototype-based Mean-teacher**<br>
 Atif Belal, Akhil Meethal, Francisco Perdigon Romero, Marco Pedersoli, Eric Granger
 
-[[arXiv](https://arxiv.org/abs/2309.14950)] 
+[[WACV](https://openaccess.thecvf.com/content/WACV2024/html/Belal_Multi-Source_Domain_Adaptation_for_Object_Detection_With_Prototype-Based_Mean_Teacher_WACV_2024_paper.html)] [[arXiv](https://arxiv.org/abs/2309.14950)] 
 
 
 <p align="center">
