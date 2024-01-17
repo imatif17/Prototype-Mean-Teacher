@@ -58,20 +58,20 @@ PMTeacher/
     └── Daytime/
         ├── Annotations/
         ├── Imagesets/
-        ├── JPEGImages.json
+        ├── JPEGImages/
 
   └── Night/
           ├── Annotations/
           ├── Imagesets/
-          ├── JPEGImages.json
+          ├── JPEGImages/
   └── DuskDawn/
         ├── Annotations/
         ├── Imagesets/
-        ├── JPEGImages.json
+        ├── JPEGImages/
   └── Kitty/
         ├── Annotations/
         ├── Imagesets/
-        ├── JPEGImages.json
+        ├── JPEGImages/
   └── Cityscapes/
         ├── annotations/
         ├── gtFine/
